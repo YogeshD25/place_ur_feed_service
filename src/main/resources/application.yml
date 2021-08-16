@@ -24,6 +24,6 @@ eureka:
     register-with-eureka: true
     fetch-registry: true
     service-url:
-      defaultZone: https://placeur-service-registry.herokuapp.com/
+      defaultZone: https://placeur-service-registry.herokuapp.com/eureka
   instance:
-    hostname: https://placeur-service-registry.herokuapp.com/
+    hostname: 172.17.161.94
