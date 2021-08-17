@@ -6,6 +6,8 @@ import com.imutable.coding.foundation.service.repository.CategoryRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 
 import java.util.List;
 
@@ -20,12 +22,12 @@ public class CategoryService {
         this.categoryRepository = categoryRepository;
     }
 
-    public void saveCategory(Category category){
+    public Mono<Category> saveCategory(Category category){
         log.info("Inside Place Service for Saving place");
-        categoryRepository.save(category);
+        return categoryRepository.save(category);
     }
 
-    public List<Category> getAllCategories(){
+    public Flux<Category> getAllCategories(){
         log.info("Inside Place Service for getting all places");
         return categoryRepository.findAll();
     }

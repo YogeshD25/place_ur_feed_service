@@ -4,26 +4,18 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.relational.core.mapping.Column;
+import org.springframework.data.relational.core.mapping.Table;
 
-import javax.persistence.*;
 
-@Entity
-@Table(name = "point_of_interest")
+@Table( "point_of_interest")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class Place {
 
     @Id
-    @SequenceGenerator(
-            name = "place_sequence",
-            sequenceName = "place_sequence",
-            allocationSize = 1
-    )
-    @GeneratedValue(
-            strategy = GenerationType.SEQUENCE,
-            generator = "place_sequence"
-    )
     @JsonIgnore
     private long placeId;
     @Column

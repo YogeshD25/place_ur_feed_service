@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.List;
+import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 
 @RestController
 @Slf4j
@@ -25,15 +25,15 @@ public class CategoryController {
     }
 
     @RequestMapping(value = "/category", method = RequestMethod.GET)
-    public List<Category> getAllPlace() {
+    public Flux<Category> getAllPlace() {
         log.info("Inside Category Controller in getAllCategories");
         return categoryService.getAllCategories();
     }
 
     @RequestMapping(value = "/category", method = RequestMethod.POST)
-    public void savePlace(@RequestBody Category category) {
+    public Mono<Category> savePlace(@RequestBody Category category) {
         log.info("Inside Category Controller in saveCategory");
-        categoryService.saveCategory(category);
+        return categoryService.saveCategory(category);
     }
 
 
