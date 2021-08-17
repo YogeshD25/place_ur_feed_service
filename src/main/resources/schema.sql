@@ -1,11 +1,11 @@
-CREATE TABLE public.place_categories (
+CREATE TABLE IF NOT EXISTS public.place_categories (
 	category_id int8 NOT NULL PRIMARY KEY,
 	category_image_url varchar(255) NULL,
 	category_name varchar(255) NULL,
 	category_secondary_image_url varchar(255) NULL
 );
 
-CREATE TABLE public.point_of_interest (
+CREATE TABLE IF NOT EXISTS public.point_of_interest (
 	place_id int8 NOT NULL PRIMARY KEy,
 	category_id int8 NULL,
 	category_name varchar(255) NULL,
